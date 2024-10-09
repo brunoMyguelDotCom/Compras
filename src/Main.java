@@ -108,7 +108,5 @@ public class Main {
 
         camisetaConverse.exibirDescricao();
 
-
-        //teste
     }
 }
