@@ -1,6 +1,6 @@
 package funcionalidade;
 
-public class Produto {
+public class Produto implements Infos{
     private String nome;
     private String cor;
     private String tamanho;
@@ -51,7 +51,7 @@ public class Produto {
         this.quantitdadeDoProdutoEmEstoque = quantitdadeDoProdutoEmEstoque;
     }
 
-    public void exibirDescricao() {
+    public void exibeInfos() {
         System.out.println("""
                 DESCRIÇÃO DO PRODUTO:
                 Nome: %s

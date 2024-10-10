@@ -1,11 +1,16 @@
 import funcionalidade.Carrinho;
 import funcionalidade.Estoque;
+import funcionalidade.Pedido;
 import funcionalidade.Produto;
 
 public class Main {
     public static void main(String[] args) {
         Carrinho meuCarrinho = new Carrinho();
         Estoque meuEstoque = new Estoque();
+        Pedido meuPedido1;
+        Pedido meuPedido2;
+        Pedido meuPedido3;
+        Pedido meuPedido4;
 
         //CRIAÇÃO DE PRODUTOS
         Produto camisetaNike = new Produto("Camiseta", "Preta", "XG", "Algodão", "Nike", 95.90, 10);
@@ -90,23 +95,33 @@ public class Main {
         meuEstoque.adicionarItemNoEstoque(camisetaDC);
 
         //TESTES:
-        calcaDiesel.exibirDescricao();
-        jaquetaBurton.exibirDescricao();
-        camisetaAdidas.exibirDescricao();
+        calcaDiesel.exibeInfos();
+        jaquetaBurton.exibeInfos();
+        camisetaAdidas.exibeInfos();
 
         meuCarrinho.adicionarItemAoCarrinho(calcaDiesel);
         meuCarrinho.adicionarItemAoCarrinho(jaquetaBurton);
         meuCarrinho.adicionarItemAoCarrinho(camisetaAdidas);
-        meuCarrinho.exibeCarrinho();
+        meuCarrinho.exibeInfos();
 
         meuCarrinho.removerItemDoCarrinho(camisetaAdidas);
-        meuCarrinho.exibeCarrinho();
+        meuCarrinho.exibeInfos();
 
-        meuEstoque.exibirInfosEstoque();
+        meuEstoque.exibeInfos();
         meuEstoque.removerItemNoEstoque(calcaDiesel);
-        meuEstoque.exibirInfosEstoque();
+        meuEstoque.exibeInfos();
 
-        camisetaConverse.exibirDescricao();
+        camisetaConverse.exibeInfos();
 
+
+
+        meuPedido1 = new Pedido(meuCarrinho);
+        meuPedido2 = new Pedido(meuCarrinho);
+        meuPedido3 = new Pedido(meuCarrinho);
+        meuPedido4 = new Pedido(meuCarrinho);
+        meuPedido1.exibeInfos();
+        meuPedido2.exibeInfos();
+        meuPedido3.exibeInfos();
+        meuPedido4.exibeInfos();
     }
 }

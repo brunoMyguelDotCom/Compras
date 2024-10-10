@@ -3,7 +3,7 @@ package funcionalidade;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Carrinho {
+public class Carrinho implements Infos {
     private int quantidadeDeItensNoCarrinho;
     private double valorTotalNoCarrinho;
     private List<Produto> listaDeProdutosNoCarrinho;
@@ -52,7 +52,7 @@ public class Carrinho {
         }
     }
 
-    public void exibeCarrinho() {
+    public void exibeInfos() {
         System.out.println("Itens no carrinho: \n" + getListaDeProdutosNoCarrinho() + "\n");
         System.out.println("Quantidade de itens no carrinho: \n" + getQuantidadeDeItensNoCarrinho() + "\n");
         System.out.println("Valor total no carrinho: \n" + "R$ " + getValorTotalNoCarrinho() + "\n");
