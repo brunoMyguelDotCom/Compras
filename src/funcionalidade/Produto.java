@@ -1,6 +1,6 @@
 package funcionalidade;
 
-public class Produto implements Infos{
+public class Produto implements Infos {
     private String nome;
     private String cor;
     private String tamanho;
@@ -65,6 +65,6 @@ public class Produto implements Infos{
 
     @Override
     public String toString() {
-        return "~ " + getNome() + " " + getMarca() + " || "  + getTamanho() + " || R$ " + getPrecoDeVenda();
+        return "~ " + getNome() + " " + getMarca() + " || " + getTamanho() + " || R$ " + getPrecoDeVenda();
     }
 }

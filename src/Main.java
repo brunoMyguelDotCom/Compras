@@ -1,19 +1,24 @@
-import funcionalidade.Carrinho;
-import funcionalidade.Estoque;
-import funcionalidade.Pedido;
-import funcionalidade.Produto;
+import funcionalidade.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        Cliente cliente;
+
         Carrinho meuCarrinho1 = new Carrinho();
         Carrinho meuCarrinho2 = new Carrinho();
         Pedido meuPedido1 = new Pedido();
         Pedido meuPedido2 = new Pedido();
+
         Estoque meuEstoque = new Estoque();
+
         List<Pedido> listaDePedidos;
+        List<Cliente> listaDeClientes = new ArrayList<>();
 
 
         //CRIAÇÃO DE PRODUTOS
@@ -98,7 +103,53 @@ public class Main {
         meuEstoque.adicionarItemNoEstoque(bermudaRoxy);
         meuEstoque.adicionarItemNoEstoque(camisetaDC);
 
-        //TESTES:
+
+        while (true) {
+
+            System.out.println("BEM VINDO AO SISTEMA DE COMPRAS!");
+            System.out.println("DIGITE 1 PARA FAZER LOGIN, 2 PARA SE CADASTRAR OU 3 PARA SAIR: ");
+            int opcao = scanner.nextInt();
+            switch (opcao) {
+                case 1:
+                    System.out.println(" ~ LOGIN: \n");
+
+                    System.out.println("Digite seu email: ");
+                    String emailLogin = scanner.next();
+
+                    System.out.println("Digite sua senha: ");
+                    String senhaLogin = scanner.next();
+
+
+                    break;
+                case 2:
+                    cliente = new Cliente();
+
+                    System.out.println("Digite seu nome: ");
+                    cliente.setNome(scanner.next());
+
+                    System.out.println("Digite seu email: ");
+                    cliente.setEmail(scanner.next());
+
+                    System.out.println("Digite seu endereço: ");
+                    cliente.setEndereco(scanner.next());
+
+                    System.out.println("Digite sua senha: ");
+                    cliente.setSenha(scanner.next());
+
+                    listaDeClientes.add(cliente);
+                    cliente.exibeInfos();
+
+                    System.out.println(listaDeClientes);
+
+                    break;
+                case 3:
+                    System.exit(0);
+                    break;
+            }
+        }
+
+        /*
+       //TESTES:
         calcaDiesel.exibeInfos();
         jaquetaBurton.exibeInfos();
         camisetaAdidas.exibeInfos();
@@ -131,5 +182,7 @@ public class Main {
         meuPedido2.exibeInfos();
 
         System.out.println(listaDePedidos);
+    */
+
     }
 }
