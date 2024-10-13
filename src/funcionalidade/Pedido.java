@@ -2,40 +2,59 @@ package funcionalidade;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Pedido implements Infos {
-    private Random random = new Random();
     private int numeroDoPedido;
     private double valorTotalDoPedido;
+    private int quantidadeDeItensNoPedido;
     private List<Produto> listaDeProdutos;
 
-    public Pedido(Carrinho carrinhoParaPedido) {
-        numeroDoPedido = random.nextInt(100);
-
-        this.valorTotalDoPedido = carrinhoParaPedido.getValorTotalNoCarrinho();
-
+    public Pedido() {
+        this.numeroDoPedido = 0;
+        this.valorTotalDoPedido = 0;
         this.listaDeProdutos = new ArrayList<>();
-        listaDeProdutos = carrinhoParaPedido.getListaDeProdutosNoCarrinho();
     }
 
     public int getNumeroDoPedido() {
         return numeroDoPedido;
     }
 
+    public void setNumeroDoPedido(int numeroDoPedido) {
+        this.numeroDoPedido = numeroDoPedido;
+    }
+
     public double getValorTotalDoPedido() {
         return valorTotalDoPedido;
+    }
+
+    public int getQuantidadeDeItensNoPedido() {
+        return quantidadeDeItensNoPedido;
     }
 
     public List<Produto> getListaDeProdutos() {
         return listaDeProdutos;
     }
 
+    public void criaPedido(Carrinho carrinhoParaCriarPedido) {
+        this.quantidadeDeItensNoPedido = carrinhoParaCriarPedido.getQuantidadeDeItensNoCarrinho();
+        this.valorTotalDoPedido = carrinhoParaCriarPedido.getValorTotalNoCarrinho();
+        this.listaDeProdutos = carrinhoParaCriarPedido.getListaDeProdutosNoCarrinho();
+    }
+
+    @Override
     public void exibeInfos() {
-        System.out.println("""
-                NÚMERO DO PEDIDO: %d
-                VALOR TOTAL DO PEDIDO: R$%.2f
-                """.formatted(getNumeroDoPedido(), getValorTotalDoPedido()));
-        System.out.println("PRODUTOS NO PEDIDO: \n" + getListaDeProdutos());
+        System.out.printf("""
+                
+                Número do pedido: %d
+                Quantidade total de itens no pedido: %d
+                Valor total do pedido: R$%.2f
+                %n""", getNumeroDoPedido(), getQuantidadeDeItensNoPedido(), getValorTotalDoPedido());
+        System.out.println("Produtos no pedido: " + getListaDeProdutos() + "\n");
+    }
+
+    @Override
+    public String toString() {
+        return "\nNúmero do pedido: " + getNumeroDoPedido() + "\n" + "Valor total do pedido: R$" + getValorTotalDoPedido() + "\n" + "Lista de produtos no pedido: " + getListaDeProdutos() + "\n";
     }
 }
+

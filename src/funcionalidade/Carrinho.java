@@ -31,10 +31,9 @@ public class Carrinho implements Infos {
         listaDeProdutosNoCarrinho.add(itemAdicionadoAoCarrinho);
         quantidadeDeItensNoCarrinho += 1;
         this.valorTotalNoCarrinho += itemAdicionadoAoCarrinho.getPrecoDeVenda();
-
         itemAdicionadoAoCarrinho.setQuantitdadeDoProdutoEmEstoque(itemAdicionadoAoCarrinho.getQuantitdadeDoProdutoEmEstoque() - 1);
 
-        System.out.println("ITEM: " + itemAdicionadoAoCarrinho.getNome() + " ADICIONADO AO SEU CARRINHO!\n");
+        System.out.println("ITEM: " + itemAdicionadoAoCarrinho.getNome() + " " + itemAdicionadoAoCarrinho.getMarca() + " ADICIONADO AO SEU CARRINHO!\n");
     }
 
     public void removerItemDoCarrinho(Produto itemRemovidoDoCarrinho) {
@@ -45,7 +44,7 @@ public class Carrinho implements Infos {
             this.valorTotalNoCarrinho -= itemRemovidoDoCarrinho.getPrecoDeVenda();
 
             itemRemovidoDoCarrinho.setQuantitdadeDoProdutoEmEstoque(itemRemovidoDoCarrinho.getQuantitdadeDoProdutoEmEstoque() + 1);
-            System.out.println("ITEM: " + itemRemovidoDoCarrinho.getNome() + " REMOVIDO DO SEU CARRINHO!\n");
+            System.out.println("ITEM: " + itemRemovidoDoCarrinho.getNome() + " " + itemRemovidoDoCarrinho.getMarca() + " REMOVIDO DO SEU CARRINHO!\n");
 
         } else {
             System.out.println("ITEM: " + itemRemovidoDoCarrinho.getNome() + " NÃO ESTÁ EM SEU CARRINHO!\n");

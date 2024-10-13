@@ -3,14 +3,18 @@ import funcionalidade.Estoque;
 import funcionalidade.Pedido;
 import funcionalidade.Produto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        Carrinho meuCarrinho = new Carrinho();
+        Carrinho meuCarrinho1 = new Carrinho();
+        Carrinho meuCarrinho2 = new Carrinho();
+        Pedido meuPedido1 = new Pedido();
+        Pedido meuPedido2 = new Pedido();
         Estoque meuEstoque = new Estoque();
-        Pedido meuPedido1;
-        Pedido meuPedido2;
-        Pedido meuPedido3;
-        Pedido meuPedido4;
+        List<Pedido> listaDePedidos;
+
 
         //CRIAÇÃO DE PRODUTOS
         Produto camisetaNike = new Produto("Camiseta", "Preta", "XG", "Algodão", "Nike", 95.90, 10);
@@ -99,29 +103,33 @@ public class Main {
         jaquetaBurton.exibeInfos();
         camisetaAdidas.exibeInfos();
 
-        meuCarrinho.adicionarItemAoCarrinho(calcaDiesel);
-        meuCarrinho.adicionarItemAoCarrinho(jaquetaBurton);
-        meuCarrinho.adicionarItemAoCarrinho(camisetaAdidas);
-        meuCarrinho.exibeInfos();
+        meuCarrinho1.adicionarItemAoCarrinho(calcaDiesel);
+        meuCarrinho1.adicionarItemAoCarrinho(jaquetaBurton);
+        meuCarrinho1.adicionarItemAoCarrinho(camisetaAdidas);
+        meuCarrinho1.removerItemDoCarrinho(camisetaAdidas);
 
-        meuCarrinho.removerItemDoCarrinho(camisetaAdidas);
-        meuCarrinho.exibeInfos();
+        meuCarrinho1.exibeInfos();
 
-        meuEstoque.exibeInfos();
-        meuEstoque.removerItemNoEstoque(calcaDiesel);
-        meuEstoque.exibeInfos();
+        meuCarrinho2.adicionarItemAoCarrinho(camisetaNike);
+        meuCarrinho2.adicionarItemAoCarrinho(jaquetaTheNorthFace);
+        meuCarrinho2.exibeInfos();
 
-        camisetaConverse.exibeInfos();
+        System.out.println("***********");
+        System.out.println("***********");
 
+        listaDePedidos = new ArrayList<>();
+        //TODA VEZ QUE CONCLUIR A COMPRA PRECISA FAZER OS TRES PASSOS:
+        meuPedido1.criaPedido(meuCarrinho1);
+        meuPedido1.setNumeroDoPedido(listaDePedidos.size() + 1);
+        listaDePedidos.add(meuPedido1);
 
+        meuPedido2.criaPedido(meuCarrinho2);
+        meuPedido2.setNumeroDoPedido(listaDePedidos.size() + 1);
+        listaDePedidos.add(meuPedido2);
 
-        meuPedido1 = new Pedido(meuCarrinho);
-        meuPedido2 = new Pedido(meuCarrinho);
-        meuPedido3 = new Pedido(meuCarrinho);
-        meuPedido4 = new Pedido(meuCarrinho);
         meuPedido1.exibeInfos();
         meuPedido2.exibeInfos();
-        meuPedido3.exibeInfos();
-        meuPedido4.exibeInfos();
+
+        System.out.println(listaDePedidos);
     }
 }

@@ -52,7 +52,7 @@ public class Produto implements Infos{
     }
 
     public void exibeInfos() {
-        System.out.println("""
+        System.out.printf("""
                 DESCRIÇÃO DO PRODUTO:
                 Nome: %s
                 Cor: %s
@@ -60,11 +60,11 @@ public class Produto implements Infos{
                 Material: %s
                 Marca: %s
                 Preço de venda: R$ %.2f
-                """.formatted(getNome(), getCor(), getTamanho(), getMaterial(), getMarca(), getPrecoDeVenda()));
+                %n""", getNome(), getCor(), getTamanho(), getMaterial(), getMarca(), getPrecoDeVenda());
     }
 
     @Override
     public String toString() {
-        return nome + " R$" + precoDeVenda;
+        return "~ " + getNome() + " " + getMarca() + " || "  + getTamanho() + " || R$ " + getPrecoDeVenda();
     }
 }
